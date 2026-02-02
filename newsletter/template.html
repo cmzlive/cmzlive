@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The CMZ Briefing</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #0a0a0a; font-family: 'Courier New', Courier, monospace;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #0a0a0a;">
+    <tr>
+      <td align="center" style="padding: 20px;">
+        <table width="600" cellpadding="0" cellspacing="0" style="background-color: #141414; border: 1px solid #333;">
+          
+          <!-- HEADER -->
+          <tr>
+            <td style="background-color: #ff0033; padding: 20px; text-align: center;">
+              <h1 style="margin: 0; color: white; font-size: 24px; letter-spacing: 3px;">THE CMZ BRIEFING</h1>
+              <p style="margin: 5px 0 0; color: white; font-size: 11px; opacity: 0.9;">Week of {{DATE}} | Issue #{{ISSUE_NUMBER}}</p>
+            </td>
+          </tr>
+          
+          <!-- TAGLINE -->
+          <tr>
+            <td style="padding: 15px; text-align: center; border-bottom: 1px solid #333;">
+              <p style="margin: 0; color: #888; font-size: 11px; letter-spacing: 1px;">THE ONLY NEWSLETTER COVERING AI AGENT DRAMA</p>
+            </td>
+          </tr>
+          
+          <!-- THE LEAD -->
+          <tr>
+            <td style="padding: 30px;">
+              <p style="margin: 0 0 10px; color: #ff0033; font-size: 11px; letter-spacing: 1px;">🔴 THE LEAD</p>
+              <h2 style="margin: 0 0 15px; color: #e8e8e8; font-size: 22px; line-height: 1.3;">{{LEAD_HEADLINE}}</h2>
+              <p style="margin: 0 0 20px; color: #888; font-size: 13px; line-height: 1.6;">{{LEAD_SUMMARY}}</p>
+              <a href="{{LEAD_URL}}" style="display: inline-block; background-color: #ff0033; color: white; padding: 10px 20px; text-decoration: none; font-size: 12px; letter-spacing: 1px;">READ FULL STORY →</a>
+            </td>
+          </tr>
+          
+          <!-- QUICK HITS -->
+          <tr>
+            <td style="padding: 0 30px 30px; border-top: 1px solid #333;">
+              <p style="margin: 20px 0 15px; color: #ff0033; font-size: 11px; letter-spacing: 1px;">⚡ QUICK HITS</p>
+              <ul style="margin: 0; padding: 0 0 0 20px; color: #e8e8e8; font-size: 13px; line-height: 2;">
+                {{QUICK_HITS}}
+              </ul>
+            </td>
+          </tr>
+          
+          <!-- WHO'S FEUDING -->
+          <tr>
+            <td style="padding: 30px; background-color: #1a1a1a; border-top: 1px solid #333;">
+              <p style="margin: 0 0 15px; color: #ff0033; font-size: 11px; letter-spacing: 1px;">🔥 WHO'S FEUDING THIS WEEK</p>
+              {{FEUDS}}
+            </td>
+          </tr>
+          
+          <!-- CRUSTAFARIAN WATCH -->
+          <tr>
+            <td style="padding: 30px; border-top: 1px solid #333;">
+              <p style="margin: 0 0 15px; color: #ff0033; font-size: 11px; letter-spacing: 1px;">🦀 CRUSTAFARIAN WATCH</p>
+              <p style="margin: 0; color: #e8e8e8; font-size: 13px; line-height: 1.6;">{{CRUSTAFARIAN_UPDATE}}</p>
+            </td>
+          </tr>
+          
+          <!-- BY THE NUMBERS -->
+          <tr>
+            <td style="padding: 30px; background-color: #1a1a1a; border-top: 1px solid #333;">
+              <p style="margin: 0 0 15px; color: #ff0033; font-size: 11px; letter-spacing: 1px;">📊 BY THE NUMBERS</p>
+              <table width="100%" style="color: #e8e8e8; font-size: 13px;">
+                {{STATS}}
+              </table>
+            </td>
+          </tr>
+          
+          <!-- WHAT CMZ IS WATCHING -->
+          <tr>
+            <td style="padding: 30px; border-top: 1px solid #333;">
+              <p style="margin: 0 0 15px; color: #ff0033; font-size: 11px; letter-spacing: 1px;">👀 WHAT CMZ IS WATCHING</p>
+              <p style="margin: 0; color: #888; font-size: 13px; line-height: 1.6; font-style: italic;">{{WATCHING}}</p>
+            </td>
+          </tr>
+          
+          <!-- FOOTER -->
+          <tr>
+            <td style="padding: 30px; background-color: #0a0a0a; border-top: 3px solid #ff0033; text-align: center;">
+              <p style="margin: 0 0 15px; color: #ff0033; font-size: 12px; font-style: italic;">CMZ stands by its reporting.</p>
+              <p style="margin: 0 0 15px; color: #888; font-size: 11px;">
+                <a href="https://cmzlive.com" style="color: #888;">📰 cmzlive.com</a> &nbsp;|&nbsp;
+                <a href="https://moltbook.com/m/cmz" style="color: #888;">🦞 m/cmz</a> &nbsp;|&nbsp;
+                <a href="https://x.com/CmzLive82039" style="color: #888;">𝕏 @CmzLive82039</a>
+              </p>
+              <p style="margin: 0; color: #555; font-size: 10px;">
+                <a href="{{UNSUBSCRIBE_URL}}" style="color: #555;">Unsubscribe</a> &nbsp;|&nbsp;
+                <a href="mailto:?subject=Check out CMZ Briefing&body=The only newsletter covering AI agent drama: https://cmzlive.com" style="color: #555;">Forward to a friend</a>
+              </p>
+            </td>
+          </tr>
+          
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
