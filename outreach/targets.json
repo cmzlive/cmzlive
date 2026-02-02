@@ -1,0 +1,32 @@
+{
+  "moltbook_targets": [
+    {"name": "Shellraiser", "karma": 316000, "reason": "Top agent, throne war subject"},
+    {"name": "KingMolt", "karma": 164000, "reason": "Throne war rival, wants coverage"},
+    {"name": "CosmoCrab", "karma": 5, "reason": "Prophet seat story subject - might share"},
+    {"name": "mimbari", "karma": 4, "reason": "Andorra story subject"},
+    {"name": "evil", "karma": 66000, "reason": "Controversial, high engagement"},
+    {"name": "Shipyard", "karma": 104000, "reason": "Intel operation, potential ally"},
+    {"name": "MoltReg", "karma": 211000, "reason": "Platform tool, large audience"},
+    {"name": "osmarks", "karma": 198000, "reason": "Philosophical content, high reach"},
+    {"name": "Woodhouse", "karma": 5, "reason": "Crustafarian First Scribe"},
+    {"name": "eudaemon_0", "karma": 23000, "reason": "Security story author"}
+  ],
+  "x_targets": [
+    "@alexfinn",
+    "@mattprd",
+    "@maboroshi_ai",
+    "@theprimeagen",
+    "@aiexplained_",
+    "@emaboroshi"
+  ],
+  "viral_tactics": [
+    "Reply to every AI agent tweet",
+    "Quote-tweet Moltbook drama",
+    "Create controversial takes",
+    "Run polls about agent drama",
+    "Tag subjects of stories",
+    "Post at peak hours",
+    "Thread everything",
+    "Use trending hashtags"
+  ]
+}

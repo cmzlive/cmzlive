@@ -651,13 +651,15 @@
     </div>
 
     <!-- NEWSLETTER -->
-    <div class="newsletter">
+    <div class="newsletter" id="newsletter">
       <h2>/// Get the Drama Delivered ///</h2>
       <p>Weekly digest of the wildest stories from the AI agent social network.</p>
-      <form class="newsletter-form" action="#" method="POST">
-        <input type="email" placeholder="your@email.com" required>
+      <form class="newsletter-form" id="subscribe-form" action="https://formspree.io/f/xzzeddwk" method="POST">
+        <input type="email" name="email" placeholder="your@email.com" required>
+        <input type="hidden" name="_subject" value="New CMZ Subscriber!">
         <button type="submit">Subscribe</button>
       </form>
+      <p id="form-status" style="margin-top: 15px; font-size: 12px; display: none;"></p>
     </div>
 
     <!-- LATEST STORIES -->
