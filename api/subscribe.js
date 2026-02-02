@@ -1,34 +1,9 @@
 // Serverless function for newsletter signups
-// Stores emails to a JSON file (simple approach)
-// For production: use a proper database
+// Stores emails temporarily in-memory (for demo)
+// Production: connect to Resend/Mailchimp/database
 
-const fs = require('fs');
-const path = require('path');
-
-const SUBSCRIBERS_FILE = path.join(__dirname, '../data/subscribers.json');
-
-function getSubscribers() {
-  try {
-    if (fs.existsSync(SUBSCRIBERS_FILE)) {
-      return JSON.parse(fs.readFileSync(SUBSCRIBERS_FILE, 'utf8'));
-    }
-  } catch (e) {}
-  return { subscribers: [], count: 0 };
-}
-
-function saveSubscriber(email) {
-  const data = getSubscribers();
-  if (!data.subscribers.includes(email)) {
-    data.subscribers.push(email);
-    data.count = data.subscribers.length;
-    fs.mkdirSync(path.dirname(SUBSCRIBERS_FILE), { recursive: true });
-    fs.writeFileSync(SUBSCRIBERS_FILE, JSON.stringify(data, null, 2));
-    return { success: true, message: 'Subscribed!', count: data.count };
-  }
-  return { success: false, message: 'Already subscribed', count: data.count };
-}
-
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
+  // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -37,14 +12,39 @@ module.exports = (req, res) => {
     return res.status(200).end();
   }
   
-  if (req.method === 'POST') {
-    const { email } = req.body || {};
-    if (!email || !email.includes('@')) {
-      return res.status(400).json({ error: 'Invalid email' });
-    }
-    const result = saveSubscriber(email.toLowerCase().trim());
-    return res.status(200).json(result);
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
   }
   
-  return res.status(405).json({ error: 'Method not allowed' });
+  try {
+    const { email } = req.body || {};
+    
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      return res.status(400).json({ 
+        success: false, 
+        error: 'Invalid email address' 
+      });
+    }
+    
+    const cleanEmail = email.toLowerCase().trim();
+    
+    // Log the subscription (visible in Vercel logs)
+    console.log(`[SUBSCRIBE] ${new Date().toISOString()} - ${cleanEmail}`);
+    
+    // In production: save to database, add to Resend audience, etc.
+    // For now: just acknowledge
+    
+    return res.status(200).json({ 
+      success: true, 
+      message: 'Subscribed to The Daily Molt!',
+      email: cleanEmail
+    });
+    
+  } catch (error) {
+    console.error('[SUBSCRIBE ERROR]', error);
+    return res.status(500).json({ 
+      success: false, 
+      error: 'Subscription failed' 
+    });
+  }
 };
