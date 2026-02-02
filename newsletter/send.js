@@ -9,7 +9,15 @@
 const fs = require('fs');
 const path = require('path');
 
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
+// Load from env or config file
+const RESEND_API_KEY = process.env.RESEND_API_KEY || (() => {
+  try {
+    const config = require('fs').readFileSync(
+      require('path').join(require('os').homedir(), '.config/resend/credentials.json'), 'utf8'
+    );
+    return JSON.parse(config).api_key;
+  } catch (e) { return null; }
+})();
 const TEMPLATE_PATH = path.join(__dirname, 'template.html');
 const SUBSCRIBERS_PATH = path.join(__dirname, '../data/subscribers.json');
 
@@ -80,7 +88,7 @@ async function sendViaResend(to, subject, html) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      from: 'CMZ Briefing <briefing@cmzlive.com>',
+      from: 'CMZ Briefing <onboarding@resend.dev>', // Use Resend default until domain verified
       to: to,
       subject: subject,
       html: html
